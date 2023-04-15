@@ -1,6 +1,8 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -34,6 +36,7 @@ namespace Ejercicio_GIT
             Console.WriteLine("El listado de productos y la compra de cada producto");
             bool salir = true;
             Compras producto = new Compras();
+            List<Empresa> listaProducto = new List<Empresa>();
 
             while (salir)
             {
@@ -49,8 +52,24 @@ namespace Ejercicio_GIT
                 int cod = Convert.ToInt32(Console.ReadLine());
                 Tipos codTipo = (Tipos)cod;
 
-                producto.RegistrarCompra(codNum);
+                Empresa listaPro = new Empresa(codNum, nombre, stock, precioUnit, codTipo);
+                listaProducto.Add(listaPro);
+
+                Console.WriteLine("Desea registrar una compra:");
+                bool decision = Convert.ToBoolean(Console.ReadKey());
+                if (decision == true)
+                {
+                    Console.WriteLine("El codigo del producto:");
+                    producto.RegistrarCompra(codNum);
+                    listaPro.ContarStock(codNum, stock);
+                }
                 
+
+
+
+
+
+
 
 
             }

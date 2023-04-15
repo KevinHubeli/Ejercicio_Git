@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Policy;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -12,10 +13,10 @@ namespace Ejercicio_GIT
         DateTime fechaDeCompra { get; set; }
         int codProducto { get; set; }
         int cantidadCompra { get; set; }
-        public Resultado RegistrarCompra(int codigo)
+        public Resultado RegistrarCompra(int codNum)
         {
             Resultado resultado = new Resultado();
-            if ()
+            if (codProducto == codNum)
             {
                 resultado.decision = true;
             }
