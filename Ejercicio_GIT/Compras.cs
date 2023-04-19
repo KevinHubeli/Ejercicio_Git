@@ -9,7 +9,6 @@ namespace Ejercicio_GIT
 {
     public class Compras
     {
-        public Compras() { }
         DateTime fechaDeCompra { get; set; }
         int codProducto { get; set; }
         int cantidadCompra { get; set; }

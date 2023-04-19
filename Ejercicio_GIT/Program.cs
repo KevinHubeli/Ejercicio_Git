@@ -36,7 +36,7 @@ namespace Ejercicio_GIT
             Console.WriteLine("El listado de productos y la compra de cada producto");
             bool salir = true;
             Compras producto = new Compras();
-            List<Empresa> listaProducto = new List<Empresa>();
+            List<Producto> listaProductos = new List<Producto>(); 
 
             while (salir)
             {
@@ -51,9 +51,8 @@ namespace Ejercicio_GIT
                 Console.WriteLine("Ingrese el tipo:");
                 int cod = Convert.ToInt32(Console.ReadLine());
                 Tipos codTipo = (Tipos)cod;
-
-                Empresa listaPro = new Empresa(codNum, nombre, stock, precioUnit, codTipo);
-                listaProducto.Add(listaPro);
+                Producto produc = new Producto(codNum, nombre, stock, precioUnit, codTipo);
+                listaProductos.Add(produc);
 
                 Console.WriteLine("Desea registrar una compra:");
                 bool decision = Convert.ToBoolean(Console.ReadKey());
@@ -61,9 +60,16 @@ namespace Ejercicio_GIT
                 {
                     Console.WriteLine("El codigo del producto:");
                     producto.RegistrarCompra(codNum);
-                    listaPro.ContarStock(codNum, stock);
                 }
+                Console.WriteLine("ingrese el codigo del producto que desea saber su stock:");
+                int codStock = Convert.ToInt32(Console.ReadKey());
+                produc.ContarStock(codStock);
+
+                Console.WriteLine("ingrese un stock y se mostraran los nombres con menor stock del ingresado:");
+                int nombrestock = Convert.ToInt32(Console.ReadKey());
+                Console.WriteLine("El producto con mayor cantidad de stock:");
                 
+
 
 
 
